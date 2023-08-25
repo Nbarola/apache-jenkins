@@ -12,14 +12,20 @@ podTemplate(label: label,
         stage('Run shell and generate file') {
             container('alpine') {
                 sh 'echo "hello world" > file.txt'
-                sleep 60000
+                sleep 100
             }
         }
-    }
+    
     // Triggering the downstream pipeline
-    post {
-        always {
-            build job: 'k8s-e2e'
-        }
-    }
+//    post {
+//        always {
+//            build job: 'k8s-e2e'
+//        }
+//    }
+       stage('triggerChildJob') {
+            steps {
+                build job: "k8s-e2e", wait: true
+            }
+}
+}
 }
