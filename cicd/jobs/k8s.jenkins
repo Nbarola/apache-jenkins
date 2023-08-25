@@ -28,10 +28,10 @@ pipelineJob('k8s-e2e') {
    // triggers {
    //     scm('*/master')
    // }
-    post {
-       always {
-            build job: 'k8s-e2e'
-        }
-    }
+//    post {
+//      always {
+//            build job: 'k8s-e2e'
+//        }
+//    }
 
 }
