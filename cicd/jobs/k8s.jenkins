@@ -2,14 +2,14 @@
 
 pipelineJob('k8s-e2e') {
     displayName('Kubernetes Plugin E2E Test')
-    triggers {
-                    hudsonStartupTrigger {
-                      quietPeriod("0")
-                      runOnChoice("False")
-                      label("")
-                      nodeParameterName("")
-                    }
-       }
+  //  triggers {
+    //                hudsonStartupTrigger {
+      //                quietPeriod("0")
+        //              runOnChoice("False")
+          //            label("")
+            //          nodeParameterName("")
+              //      }
+      // }
 
     definition {
         cpsScm {
@@ -28,4 +28,10 @@ pipelineJob('k8s-e2e') {
    // triggers {
    //     scm('*/master')
    // }
+    post {
+       always {
+            build job: 'k8s-e2e'
+        }
+    }
+
 }
