@@ -16,4 +16,10 @@ podTemplate(label: label,
             }
         }
     }
+    // Triggering the downstream pipeline
+    post {
+        always {
+            build job: 'k8s-e2e'
+        }
+    }
 }
