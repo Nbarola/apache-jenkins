@@ -22,10 +22,10 @@ podTemplate(label: label,
 //            build job: 'k8s-e2e'
 //        }
 //    }
-       stage('triggerChildJob') {
-            steps {
-                build job: "k8s-e2e", wait: true
-            }
-}
+//       stage('triggerChildJob') {
+ //           steps {
+ //               build job: "k8s-e2e", wait: true
+ //           }
+//}
 }
 }
