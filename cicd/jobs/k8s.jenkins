@@ -33,5 +33,10 @@ pipelineJob('k8s-e2e') {
 //            build job: 'k8s-e2e'
 //        }
 //    }
+    post {
+        always {
+            build job: 'k8s-e2e', propagate: true, wait: true
+        }
+    }
 
 }
